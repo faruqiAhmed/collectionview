@@ -1,0 +1,25 @@
+import UIKit
+
+class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+    let item = ["cat","car","flower"]
+    let imge =  [#imageLiteral(resourceName: "Unknown"),#imageLiteral(resourceName: "Unknown-1.jpeg"),#imageLiteral(resourceName: "3")]
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return item.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mycell", for: indexPath) as! CollectionViewCell
+        cell.label.text = item [ indexPath.row]
+        cell.imges.image = imge [indexPath.row]
+        return (cell)
+    }
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+
+}
